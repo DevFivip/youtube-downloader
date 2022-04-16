@@ -66,8 +66,9 @@ app.get("/watch", async (req, res) => {
 
     console.log(v_id);
     const info = await ytdl.getInfo(`https://www.youtube.com/watch?v=${v_id}`);
-    console.log("FORMAT 4", info.formats[4]);
-    console.log("FORMAT 1", info.formats[1]);
+
+    // console.log("FORMAT 4", info.formats[4]);
+    // console.log("FORMAT 1", info.formats[1]);
   
     let params = new URLSearchParams(req.query.url);
     v = v_id
@@ -105,6 +106,6 @@ app.get("/r", function (req, res, next) {
   }).pipe(res);
 });
 
-app.listen(3002, () => {
+app.listen(3003, () => {
   console.log("Server is running on http://localhost:3002");
 });
