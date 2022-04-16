@@ -1,66 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Download Options for the link</title>
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-			integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-			crossorigin="anonymous"
-		/>
-		<script
-			src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-			crossorigin="anonymous"
-		></script>
-	</head>
-	<body>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+	<title>
+		<%= title %>
+	</title>
+	<meta name="description" content="<%= config.description %>" />
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" />
+	<!-- Open Graph data -->
+	<meta property="og:title" content="<%= config.title %>" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="<%= config.url %>" />
+	<meta property="og:image" content="<%= config.url %>/images/video-favicon.png" />
+	<meta property="og:image:width" content="260" />
+	<meta property="og:image:height" content="260" />
+	<meta property="og:site_name" content="<%= config.title %>" />
+	<meta property="og:description" content="<%= config.description %>" />
+
+	<!-- Twitter Card data -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="<%= config.title %>" />
+	<meta name="twitter:description" content="<%= config.description %>" />
+	<meta name="twitter:image" content="<%= config.url %>/images/video-favicon.png" />
+	<meta name="twitter:image:src" content="images/video-favicon.png" />
+	<meta name="twitter:url" content="<%= config.url %>" />
+
+	<!-- Bootstrap core CSS -->
+	<link href="/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+	<!-- Custom styles for this template -->
+	<link href="/stylesheets/style.css" rel="stylesheet" />
+
+	<link href="/plugin/fontawesome-free-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css" rel="stylesheet" />
+
+	<!-- font-family: 'Hind', sans-serif; -->
+	<link href="https://fonts.googleapis.com/css?family=Hind:400,300,500,600,700|Hind+Guntur:300,400,500,700"
+		rel="stylesheet" type="text/css" />
+</head>
+
+<body id="page-top">
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
 		<div class="container">
-			<iframe class="d-flex" width="640" height="480" src="<%= url %>">
-			</iframe>
-		</div>
-		<div class="container">
-			<div class="btn-group">
-				<button
-					type="button"
-					class="btn btn-success dropdown-toggle"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false"
-				>
-					Download
-				</button>
-				<div class="dropdown-menu">
-					<% info.forEach((format) => { %>
-					<a class="dropdown-item" href="<%= format.url %>">
-						<%= format.mimeType.split(";")[0] %> <%= format.hasVideo
-						? format.height + "p" : "" %> <% if(!format.hasAudio) {
-						%>
-						<i class="fas fa-volume-mute text-danger"></i>
-						<% } %>
-					</a>
-					<% }); %>
-				</div>
+			<a href="/"><img src="images/logoh52.png" /></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link js-scroll-trigger" href="/">Inicio</a>
+					</li>
+				</ul>
 			</div>
 		</div>
-	</body>
+	</nav>
+
+	<header class="bg-light text-primary">
+		<div class="container text-center" style="padding-bottom: 25px">
+			<div class="image-responsive logo">
+				<img src="images/logo240.png" />
+			</div>
+			<h3 class="text-dark">Download Free Youtube Videos</h3>
+
+			<div class="container">
+				<img src="<%= imagen %>" alt="<%= video_title %>" width="300vh" >
+			</div>
+			<div class="container mt-5">
+				<div class="list-group">
+
+					<a class="list-group-item list-group-item-action active" href="/r?url=<%= url %>&format=mp4&title=<%= video_title %>">
+						Descargar
+					</a>
+
+				</div>
+			</div>
+			<div class="banner-ads text-center mt-5">
+				<!-- Replace your Ad Code here -->
+				<img src="images/banner.png" />
+				<!-- End Ad Code -->
+			</div>
+		</div>
+	</header>
+
+
+
+	<!-- jQuery Plugin JavaScript -->
+	<script src="/plugin/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="/plugin/jquery-easing/jquery.easing.min.js"></script>
+
+	<!-- Custom JavaScript for this theme -->
+	<script src="/javascripts/script.js"></script>
+
+	<script>
+
+
+	</script>
+
+
+</body>
+
 </html>
