@@ -7,6 +7,7 @@ const ytdl = require("ytdl-core");
 const { title } = require("./config");
 const { param } = require("express/lib/request");
 const converter = require("./convertidor");
+var findRemoveSync = require('find-remove');
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -29,6 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 // });
 
 app.get("/", function (req, res, next) {
+  result = findRemoveSync('./temp', {extensions: '.mp4',age:{seconds:900}});
+  console.log({result})
   res.render("index", { title: config.title, config: config });
 });
 
